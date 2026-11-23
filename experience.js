@@ -76,24 +76,24 @@ function renderScroll() {
 
   if (duskProgress > 0.82) {
     setText(duskTime, "03:16");
-    setText(duskReading, "MOTION IN DARKNESS");
-    setText(duskMessage, "The light went out. Something in the room kept moving.");
+    setText(duskReading, "黑暗中检测到移动");
+    setText(duskMessage, "灯熄灭了。但房间里的某个东西还在移动。");
   } else if (duskProgress > 0.45) {
     setText(duskTime, "00:41");
-    setText(duskReading, "LIGHT BELOW THRESHOLD");
-    setText(duskMessage, "As the light fades, Morrow stays with you.");
+    setText(duskReading, "光线低于阈值");
+    setText(duskMessage, "灯光渐暗，Morrow 依然陪着你。");
   } else {
     setText(duskTime, "22:42");
-    setText(duskReading, "FADE IN PROGRESS");
-    setText(duskMessage, "As the light fades, Morrow stays with you.");
+    setText(duskReading, "灯光正在渐暗");
+    setText(duskMessage, "灯光渐暗，Morrow 依然陪着你。");
   }
 
   setText(timecode, "03:17:0" + (4 + Math.min(4, Math.floor(watch * 5))));
   const status = watch > 0.80
-    ? "SUBJECT APPROACHING BED"
-    : watch > 0.47 ? "SUBJECT MOVING CLOSER" : "MOTION DETECTED";
+    ? "目标正在靠近床边"
+    : watch > 0.47 ? "目标正在靠近" : "检测到移动";
   setText(feedStatus, status);
-  setText(bedsideReading, bedsideProgress > 0.56 ? "DO NOT MOVE" : "LIGHT CALIBRATING");
+  setText(bedsideReading, bedsideProgress > 0.56 ? "不要动" : "正在校准灯光");
 
   if (endingRect.top > viewport * 0.6) impactPlayed = false;
   updateAudio();
@@ -213,7 +213,7 @@ function updateAudio() {
 function displayAudioState() {
   for (const button of audioControls) {
     button.setAttribute("aria-pressed", String(soundOn));
-    button.querySelector("[data-audio-label]").textContent = soundOn ? "Mute sound" : "Enable sound";
+    button.querySelector("[data-audio-label]").textContent = soundOn ? "关闭声音" : "开启声音";
   }
   updateAudio();
 }
