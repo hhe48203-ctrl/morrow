@@ -622,3 +622,27 @@ em {font-weight:400}
   .presence,.ending-content,.ending-clock {opacity:1}
   .presence {filter:sepia(.12) saturate(1.1) brightness(1) contrast(1.12)}
 }
+
+/* Simplified Chinese localization: preserve the original atmosphere and layout. */
+html[lang="zh-CN"] body {font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",var(--sans)}
+html[lang="zh-CN"] h1,
+html[lang="zh-CN"] h2,
+html[lang="zh-CN"] h3 {
+  font-family:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
+  font-weight:400;letter-spacing:.012em;line-height:1.17;overflow-wrap:anywhere
+}
+html[lang="zh-CN"] .brand {font-family:var(--serif)}
+html[lang="zh-CN"] .hero h1 {font-size:clamp(78px,9vw,138px)}
+html[lang="zh-CN"] .ending-content h2 {font-size:clamp(75px,12vw,180px)}
+html[lang="zh-CN"] .eyebrow,
+html[lang="zh-CN"] .feed-caption,
+html[lang="zh-CN"] .aftermath {letter-spacing:.045em}
+@media(max-width:700px) {
+  html[lang="zh-CN"] .hero h1 {font-size:clamp(76px,16vw,112px)}
+  html[lang="zh-CN"] .ending-content h2 {font-size:clamp(70px,15vw,110px)}
+  html[lang="zh-CN"] .scene-copy h2 {font-size:clamp(55px,12vw,88px)}
+  html[lang="zh-CN"] .report-header h2 {font-size:clamp(55px,12vw,86px)}
+}
+@media(max-width:360px) {
+  html[lang="zh-CN"] .hero h1 {font-size:70px}
+}
